@@ -27,24 +27,28 @@
             //Pega os valores do formulario
             let num1 = parseFloat(document.getElementById('num1').value);
             let num2 = parseFloat(document.getElementById('num2').value);
-            //realiza os calculos:)
-            switch (operacao) {
-                case 'somar':
-                    Resultado = num1 + num2;
-                    break;
-                case 'subtrair':
-                    Resultado = num1 - num2;
-                    break;
-                case 'multiplicar':
-                    Resultado = num1 * num2;
-                    break;
-                case 'dividir':
-                    if (num2 != 0) {
-                        Resultado = num1 / num2;
-                    }else{
-                        Resultado="Não é possivel dividir por ZERO"
-                    }
-                    break;
+            if (isNaN(num1) || isNaN(num2)) {
+                Resultado = "Insira um número."
+            } else {
+                //realiza os calculos:)
+                switch (operacao) {
+                    case 'somar':
+                        Resultado = num1 + num2;
+                        break;
+                    case 'subtrair':
+                        Resultado = num1 - num2;
+                        break;
+                    case 'multiplicar':
+                        Resultado = num1 * num2;
+                        break;
+                    case 'dividir':
+                        if (num2 != 0) {
+                            Resultado = num1 / num2;
+                        } else {
+                            Resultado = "Não é possivel dividir por ZERO"
+                        }
+                        break;
+                }
             }
             document.getElementById('Resultado').textContent = Resultado;
         }
